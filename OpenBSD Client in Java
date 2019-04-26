@@ -1,0 +1,28 @@
+import java.io.*;
+import java.net.*;
+
+public class client{
+
+	public static void main(String[] args)
+	{
+		Socket s = new Socket("192.168.80.131",10500); //bind socket
+		System.out.println("Server connected");
+		
+		
+		PrintWriter pencil = new PrintWriter(s.getOutputStream());
+		
+		pencil.Println("Assalamualaikum w.b.t");
+		
+		pencil.flush();
+		
+		InputStreamReader fromclient = new InputStreamReader (s.getInputStream);
+		BufferedReader br = new BufferedReader(fromclient);
+		
+		String word = br.readLine();
+		System.out.println("Message from server:" + word);
+		
+		
+		
+		
+	}
+}
